@@ -9,8 +9,26 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Deploy Code
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      uses: cross-the-world/ssh-scp-ssh-pipelines@v1.1.4
       with:
-        server: 54.166.58.38
-        username: test
-        password: admin
+        # ssh remote host
+        host: 54.166.58.38
+        # ssh remote port
+        port: 22
+        # ssh remote user
+        user: ubuntu
+        # content of ssh private key. ex raw content of ~/.ssh/id_rsa
+        key: ${{ secrets.PEM_KEY }}
+        # ssh remote password
+        pass: # optional
+        # connection timeout to remote host
+        connect_timeout: # optional, default is 30s
+        # execute pre-commands before scp
+        first_ssh: # optional
+        # scp from local to remote
+        scp: ./node/* => /var/www/html
+        # execute post-commands after scp
+        last_ssh: # optional   
+        
+        
+        

@@ -1,18 +1,20 @@
-- name: Devploy - by Divyak
-
-  uses: devguysfr/action-auto-deployment@latest
-  with:
-    # Hostname of the server
-    host: 54.166.58.38
-    # username to use
-    username: test
-    # password to use
-    password: admin
-    # port to use
-    port: # optional, default is 22
-    # local path
-    source: # optional, default is /
-    # remote target
-    target: # optional, default is /var/www/html
-    # Execute the specified command after deployment
-    execute: # optional, default is 
+on:
+  push:
+    branches:
+    - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Deploy Code
+      uses: appleboy/ssh-action@master
+      with:
+        host: 54.166.58.38
+        username: test
+        password: admin
+         script: |
+          cd /var/www/html
+          git clone git@github.com:Divyakguar/node.git
+          cp -r node/* .

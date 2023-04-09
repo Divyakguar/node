@@ -14,4 +14,3 @@ jobs:
         server: 54.166.58.38
         username: test
         password: admin
-        server-dir: /var/www/html/

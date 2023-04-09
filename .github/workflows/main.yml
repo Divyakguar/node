@@ -26,7 +26,7 @@ jobs:
         # execute pre-commands before scp
         first_ssh: # optional
         # scp from local to remote
-        scp: ./* => /var/www/html
+        scp: ./* => sudo /var/www/html
         # execute post-commands after scp
         last_ssh: # optional   
         

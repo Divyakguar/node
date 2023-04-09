@@ -28,7 +28,7 @@ jobs:
         # scp from local to remote
         scp: ./* => /var/www/html
         # execute post-commands after scp
-        last_ssh: # optional   
+       # last_ssh: # optional   
         
         
         

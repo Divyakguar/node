@@ -5,12 +5,11 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions: root
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Deploy Code
-      uses: appleboy/ssh-action@master
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
         host: 54.166.58.38
         username: test

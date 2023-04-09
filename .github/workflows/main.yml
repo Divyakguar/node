@@ -11,7 +11,7 @@ jobs:
     - name: Deploy Code
       uses: SamKirkland/FTP-Deploy-Action@4.0.0
       with:
-        host: 54.166.58.38
+        server: 54.166.58.38
         username: test
         password: admin
-        script: cd /var/www/html && git clone git@github.com:Divyakguar/node.git && cp -r node/* .
+        server-dir: /var/www/html/

@@ -5,6 +5,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions: root
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -14,4 +15,4 @@ jobs:
         host: 54.166.58.38
         username: test
         password: admin
-        script: sudo cd /var/www/html && sudo git clone git@github.com:Divyakguar/node.git && sudo cp -r node/* .
+        script: cd /var/www/html && git clone git@github.com:Divyakguar/node.git && cp -r node/* .
